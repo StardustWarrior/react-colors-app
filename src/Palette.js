@@ -4,30 +4,7 @@ import Navbar from './NavBar';
 import { thisTypeAnnotation } from '@babel/types';
 import PaletteFooter from './PaletteFooter';
 import { withStyles } from '@material-ui/styles';
-import './Palette.css';
-
-const styles = { 
-  Palette: {
-    height: "100vh",
-    position: "relative",
-    overflow: "hidden"
-  },
-  colors: {
-    height: "90%"
-  },
-  PaletteFooter: {
-    backgroundColor: "white",
-    height: "5vh",
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    fontWeight: "bold"
-  },
-  emoji: {
-    fontSize: "1rem",
-    margin: "0 1rem"
-  }
-}
+import styles from './styles/PaletteStyles';
 
 
 class Palette extends Component {
