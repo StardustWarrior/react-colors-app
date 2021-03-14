@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -12,7 +11,7 @@ class PaletteMetaForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            open: false,
+            open: true,
             setOpen: false,
             newPaletteName: "",
         }
@@ -43,9 +42,9 @@ class PaletteMetaForm extends Component{
 
     render(){
         //const {palette, handleSubmit} = this.props;
-        const {open, newPaletteName} = this.state;
+        const {newPaletteName} = this.state;
         return (
-            <Dialog open={open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+            <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
                 <ValidatorForm onSubmit={() => this.props.handleSubmit(newPaletteName)}>
                     <DialogContent>
@@ -64,10 +63,10 @@ class PaletteMetaForm extends Component{
                         />
                     </DialogContent>
                     <DialogActions>
-                    <Button onClick={this.handleClose} color="primary">
-                        Cancel
-                    </Button>
-                    <Button variant="contained" color="primary" type="submit">
+                        <Button onClick={this.props.hideForm} color="primary">
+                            Cancel
+                        </Button>
+                        <Button variant="contained" color="primary" type="submit">
                             Save Palette
                         </Button>
                     </DialogActions>
